@@ -1,16 +1,16 @@
-extern crate parsing_model;
+extern crate look_ahead_items;
 
-use parsing_model::look_ahead_items::ItemsBuilder;
+use look_ahead_items::look_ahead_items::ItemsBuilder;
 
 fn main() {
-    println!("Hello, world!");
-    let raw_text = "1234abcあいうえおABC
-5678defgかきくけこDEFG";
+    let raw_text = "123abcあいう一二三
+456defgえおか四五六";
 
     let items = ItemsBuilder::default()
         .set_look_ahead_size(4)
         .read(&raw_text.chars().collect())
         .build();
+
     for item in items {
         println!("{}", item);
     }
