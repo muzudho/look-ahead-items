@@ -1,15 +1,15 @@
 mod model;
 mod parser;
 
-use crate::parser::CharacterLineP;
 use crate::parser::DocumentP;
+use crate::parser::TextP;
 
 fn main() {
     println!("Hello, world!");
-    let text = "1234abcあいうえおABC
+    let raw_text = "1234abcあいうえおABC
 5678defgかきくけこDEFG";
-    let character_line = CharacterLineP::read(text);
-    for character in character_line {
+    let text = TextP::read(raw_text);
+    for character in text {
         println!("{}", character);
     }
     DocumentP::read("1234abc");

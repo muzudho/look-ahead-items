@@ -1,16 +1,16 @@
 use crate::model::Character;
-use crate::model::CharacterLine;
+use crate::model::Text;
 
-impl Default for CharacterLine {
+impl Default for Text {
     fn default() -> Self {
-        CharacterLine {
+        Text {
             characters: Vec::new(),
             index: 0,
         }
     }
 }
 
-impl Iterator for CharacterLine {
+impl Iterator for Text {
     type Item = Character;
 
     // ここではイテレーションの流れを`.curr`と`.next`を使用して定義している。
@@ -28,7 +28,7 @@ impl Iterator for CharacterLine {
     }
 }
 
-impl CharacterLine {
+impl Text {
     pub fn push(&mut self, character: &Character) {
         self.characters.push(character.clone())
     }
