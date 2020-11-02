@@ -1,11 +1,10 @@
-use crate::look_ahead_text::CharacterTrait;
 use crate::look_ahead_text::LookAheadCharacters;
 use crate::look_ahead_text::Text;
 use crate::look_ahead_text::TextBuilder;
 
 impl<T> Default for TextBuilder<T>
 where
-    T: CharacterTrait + std::clone::Clone,
+    T: std::clone::Clone,
 {
     fn default() -> Self {
         TextBuilder {
@@ -18,7 +17,7 @@ where
 
 impl<T> TextBuilder<T>
 where
-    T: std::clone::Clone + crate::look_ahead_text::CharacterTrait,
+    T: std::clone::Clone,
 {
     pub fn build(&self) -> Text<T>
     where

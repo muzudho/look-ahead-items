@@ -1,10 +1,9 @@
-use crate::look_ahead_text::CharacterTrait;
 use crate::look_ahead_text::LookAheadCharacters;
 use crate::look_ahead_text::Text;
 
 impl<T> Default for Text<T>
 where
-    T: std::clone::Clone + CharacterTrait,
+    T: std::clone::Clone,
 {
     fn default() -> Self {
         Text {
@@ -17,7 +16,7 @@ where
 
 impl<T> Iterator for Text<T>
 where
-    T: std::clone::Clone + CharacterTrait,
+    T: std::clone::Clone,
 {
     type Item = LookAheadCharacters<T>;
 
@@ -46,4 +45,4 @@ where
     }
 }
 
-impl<T> Text<T> where T: CharacterTrait + std::clone::Clone {}
+impl<T> Text<T> where T: std::clone::Clone {}
