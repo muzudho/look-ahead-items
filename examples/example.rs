@@ -1,6 +1,6 @@
 extern crate look_ahead_items;
 
-use look_ahead_items::look_ahead_items::ItemsBuilder;
+use look_ahead_items::ItemsBuilder;
 
 fn main() {
     let raw_text = "123abcあいう一二三

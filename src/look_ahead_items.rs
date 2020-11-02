@@ -1,4 +1,6 @@
-use crate::look_ahead_items::LookAheadItems;
+//! It is a look-ahead chunk.  
+//! 先読みチャンクです。  
+use crate::LookAheadItems;
 use std::fmt;
 
 impl<T> LookAheadItems<T>

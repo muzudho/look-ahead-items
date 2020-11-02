@@ -3,6 +3,15 @@ name = "look_ahead_items"
 version = "0.1.0"
 authors = ["むずでょ <muzudho1@gmail.com>"]
 edition = "2018"
+description = """
+I was repeating, and sometimes I wanted to look ahead. Shifted by chunks instead of one.
+"""
+readme = "README.md"
+repository = "https://github.com/muzudho/look-ahead-items"
+license = "MIT"
+keywords = ["parser"]
+categories = ["parsing"]
+exclude = ["doc/*", "examples/*", "resource/*"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

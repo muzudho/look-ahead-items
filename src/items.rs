@@ -1,4 +1,6 @@
-use crate::look_ahead_items::{Items, LookAheadItems};
+//! Please iterate.  
+//! イテレートしてください。  
+use crate::{Items, LookAheadItems};
 
 impl<T> Default for Items<T>
 where
