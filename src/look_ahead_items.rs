@@ -14,7 +14,14 @@ where
         }
     }
 
-    pub fn get_characters(&self) -> &Vec<T> {
+    pub fn get(&self, index: usize) -> Option<&T> {
+        if index < self.items.len() {
+            return Some(&self.items[index]);
+        }
+        None
+    }
+
+    pub fn get_items(&self) -> &Vec<T> {
         &self.items
     }
 }

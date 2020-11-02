@@ -11,7 +11,30 @@ fn main() {
         .read(&raw_text.chars().collect())
         .build();
 
-    for item in items {
-        println!("{}", item);
+    for look_ahead_items in items {
+        println!(
+            "* [{}][{}][{}][{}][{}]",
+            look_ahead_items,
+            if let Some(ch) = look_ahead_items.get(0) {
+                ch.to_string()
+            } else {
+                "".to_string()
+            },
+            if let Some(ch) = look_ahead_items.get(1) {
+                ch.to_string()
+            } else {
+                "".to_string()
+            },
+            if let Some(ch) = look_ahead_items.get(2) {
+                ch.to_string()
+            } else {
+                "".to_string()
+            },
+            if let Some(ch) = look_ahead_items.get(3) {
+                ch.to_string()
+            } else {
+                "".to_string()
+            }
+        );
     }
 }
