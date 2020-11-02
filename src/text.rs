@@ -39,11 +39,4 @@ impl Iterator for Text {
     }
 }
 
-impl Text {
-    pub fn build(&self) -> &Self {
-        &self
-    }
-    pub fn push(&mut self, character: char) {
-        self.characters.push(character.clone())
-    }
-}
+impl Text {}

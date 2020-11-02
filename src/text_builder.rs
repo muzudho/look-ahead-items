@@ -27,12 +27,6 @@ impl TextBuilder {
 
     pub fn read<'a>(&'a mut self, line: &str) -> &'a Self {
         self.characters = line.chars().collect();
-        /*
-        for (_i, ch) in ch_vec.iter().enumerate() {
-            m.push(*ch);
-        }
-        m
-        */
         self
     }
 }
