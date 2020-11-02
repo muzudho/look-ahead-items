@@ -1,4 +1,4 @@
-use crate::model::Character;
+use crate::Character;
 use std::fmt;
 
 impl Character {

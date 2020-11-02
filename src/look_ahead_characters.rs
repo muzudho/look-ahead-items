@@ -1,6 +1,6 @@
-use crate::model::look_ahead_characters;
-use crate::model::Character;
-use crate::model::LookAheadCharacters;
+use crate::look_ahead_characters;
+use crate::Character;
+use crate::LookAheadCharacters;
 use std::fmt;
 
 impl LookAheadCharacters {
