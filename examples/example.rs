@@ -13,7 +13,7 @@ fn main() {
 
     for look_ahead_items in items {
         println!(
-            "* [{}][{}][{}][{}][{}]",
+            "* [{}]({})({})({})({})",
             look_ahead_items,
             if let Some(ch) = look_ahead_items.get(0) {
                 ch.to_string()
