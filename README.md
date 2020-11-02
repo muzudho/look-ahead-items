@@ -5,12 +5,9 @@ Shifted by chunks instead of one.
 私は繰り返していました、そして時々私は先を見たいと思いました。  
 1つではなくチャンクでシフトしました。  
 
-Here is an example.  
-これが例です。  
-
 ## Examples
 
-```
+```rust
 extern crate look_ahead_items;
 
 use look_ahead_items::look_ahead_items::ItemsBuilder;
@@ -32,13 +29,13 @@ fn main() {
 
 ## Run
 
-```
+```shell
 cargo run --example example
 ```
 
 ## Output
 
-```
+```plain
 123a
 23ab
 3abc
