@@ -7,6 +7,7 @@ impl Default for Text {
         Text {
             characters: Vec::new(),
             look_ahead_characters: LookAheadCharacters::new(0, &vec![]),
+            look_ahead_size: 4,
         }
     }
 }
@@ -60,6 +61,10 @@ impl Iterator for Text {
 }
 
 impl Text {
+    pub fn set_look_ahead_size(&mut self, size: usize) -> &mut Self {
+        self.look_ahead_size = size;
+        self
+    }
     pub fn push(&mut self, character: &Character) {
         self.characters.push(character.clone())
     }

@@ -8,10 +8,12 @@ pub struct LookAheadCharacters {
     index: usize,
 }
 
+#[derive(Clone)]
 pub struct Text {
     characters: Vec<Character>,
     look_ahead_characters: LookAheadCharacters,
-    // index: usize,
+    /// 先読みする文字数。
+    look_ahead_size: usize,
 }
 
 #[derive(Clone)]
