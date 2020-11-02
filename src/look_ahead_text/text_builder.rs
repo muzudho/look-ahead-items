@@ -1,6 +1,6 @@
-use crate::LookAheadCharacters;
-use crate::Text;
-use crate::TextBuilder;
+use crate::look_ahead_text::LookAheadCharacters;
+use crate::look_ahead_text::Text;
+use crate::look_ahead_text::TextBuilder;
 
 impl Default for TextBuilder {
     fn default() -> Self {

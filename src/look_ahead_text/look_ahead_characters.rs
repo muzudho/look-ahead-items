@@ -1,4 +1,4 @@
-use crate::LookAheadCharacters;
+use crate::look_ahead_text::LookAheadCharacters;
 use std::fmt;
 
 impl LookAheadCharacters {

@@ -1,5 +1,5 @@
-use crate::LookAheadCharacters;
-use crate::Text;
+use crate::look_ahead_text::LookAheadCharacters;
+use crate::look_ahead_text::Text;
 
 impl Default for Text {
     fn default() -> Self {

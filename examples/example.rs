@@ -1,6 +1,6 @@
 extern crate parsing_model;
 
-use parsing_model::TextBuilder;
+use parsing_model::look_ahead_text::TextBuilder;
 
 fn main() {
     println!("Hello, world!");
