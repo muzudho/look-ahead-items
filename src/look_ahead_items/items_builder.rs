@@ -1,13 +1,13 @@
-use crate::look_ahead_text::LookAheadCharacters;
-use crate::look_ahead_text::Text;
-use crate::look_ahead_text::TextBuilder;
+use crate::look_ahead_items::Items;
+use crate::look_ahead_items::ItemsBuilder;
+use crate::look_ahead_items::LookAheadItems;
 
-impl<T> Default for TextBuilder<T>
+impl<T> Default for ItemsBuilder<T>
 where
     T: std::clone::Clone,
 {
     fn default() -> Self {
-        TextBuilder {
+        ItemsBuilder {
             characters: Vec::new(),
             /// 先読みする文字数。
             look_ahead_size: 2,
@@ -15,17 +15,17 @@ where
     }
 }
 
-impl<T> TextBuilder<T>
+impl<T> ItemsBuilder<T>
 where
     T: std::clone::Clone,
 {
-    pub fn build(&self) -> Text<T>
+    pub fn build(&self) -> Items<T>
     where
         T: std::clone::Clone,
     {
-        Text {
+        Items {
             characters: self.characters.clone(),
-            look_ahead_characters: LookAheadCharacters::new(0, &vec![]),
+            look_ahead_characters: LookAheadItems::new(0, &vec![]),
             look_ahead_size: self.look_ahead_size,
         }
     }
