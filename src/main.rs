@@ -6,7 +6,9 @@ use crate::parser::DocumentP;
 
 fn main() {
     println!("Hello, world!");
-    let character_line = CharacterLineP::read("1234abc");
+    let text = "1234abcあいうえおABC
+5678defgかきくけこDEFG";
+    let character_line = CharacterLineP::read(text);
     for character in character_line {
         println!("{}", character);
     }
