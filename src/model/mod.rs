@@ -2,11 +2,16 @@ pub mod character;
 pub mod look_ahead_characters;
 pub mod text;
 
-pub struct LookAheadCharacters {}
+#[derive(Clone)]
+pub struct LookAheadCharacters {
+    characters: Vec<Character>,
+    index: usize,
+}
 
 pub struct Text {
     characters: Vec<Character>,
-    index: usize,
+    look_ahead_characters: LookAheadCharacters,
+    // index: usize,
 }
 
 #[derive(Clone)]
