@@ -6,6 +6,7 @@ pub struct LookAheadCharacters {}
 
 pub struct CharacterLine {
     characters: Vec<Character>,
+    index: usize,
 }
 
 #[derive(Clone)]
