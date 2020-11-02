@@ -4,8 +4,11 @@ pub mod look_ahead_characters;
 
 pub struct LookAheadCharacters {}
 
-pub struct CharacterLine {}
+pub struct CharacterLine {
+    characters: Vec<Character>,
+}
 
+#[derive(Clone)]
 pub struct Character {
-    value: char,
+    character: char,
 }
