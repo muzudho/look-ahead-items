@@ -1,7 +1,11 @@
+use crate::look_ahead_text::CharacterTrait;
 use crate::look_ahead_text::LookAheadCharacters;
 use crate::look_ahead_text::Text;
 
-impl Default for Text {
+impl<T> Default for Text<T>
+where
+    T: std::clone::Clone + CharacterTrait,
+{
     fn default() -> Self {
         Text {
             characters: Vec::new(),
@@ -11,14 +15,17 @@ impl Default for Text {
     }
 }
 
-impl Iterator for Text {
-    type Item = LookAheadCharacters;
+impl<T> Iterator for Text<T>
+where
+    T: std::clone::Clone + CharacterTrait,
+{
+    type Item = LookAheadCharacters<T>;
 
     // ここではイテレーションの流れを`.curr`と`.next`を使用して定義している。
     // 返り値の型は`Option<T>`で、これは:
     //     * `Iterator`が終了した時は`None`を返し、
     //     * そうでなければ`Some`でラップされた値を返す。
-    fn next(&mut self) -> Option<LookAheadCharacters> {
+    fn next(&mut self) -> Option<LookAheadCharacters<T>> {
         // 先読み。
         let num = self.look_ahead_size;
 
@@ -39,4 +46,4 @@ impl Iterator for Text {
     }
 }
 
-impl Text {}
+impl<T> Text<T> where T: CharacterTrait + std::clone::Clone {}

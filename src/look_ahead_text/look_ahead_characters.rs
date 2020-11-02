@@ -1,19 +1,26 @@
+use crate::look_ahead_text::CharacterTrait;
 use crate::look_ahead_text::LookAheadCharacters;
 use std::fmt;
 
-impl LookAheadCharacters {
-    pub fn new(index: usize, characters: &Vec<char>) -> Self {
+impl<T> LookAheadCharacters<T>
+where
+    T: std::clone::Clone + CharacterTrait,
+{
+    pub fn new(index: usize, characters: &Vec<T>) -> Self {
         LookAheadCharacters {
             characters: characters.clone(),
             index: index,
         }
     }
 
-    pub fn get_characters(&self) -> &Vec<char> {
+    pub fn get_characters(&self) -> &Vec<T> {
         &self.characters
     }
 }
-impl fmt::Display for LookAheadCharacters {
+impl<T> fmt::Display for LookAheadCharacters<T>
+where
+    T: std::fmt::Display + CharacterTrait + std::clone::Clone,
+{
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut buf = String::new();
         for character in &self.characters {
@@ -22,7 +29,10 @@ impl fmt::Display for LookAheadCharacters {
         write!(f, "{}", buf)
     }
 }
-impl fmt::Debug for LookAheadCharacters {
+impl<T> fmt::Debug for LookAheadCharacters<T>
+where
+    T: std::fmt::Debug + CharacterTrait + std::clone::Clone,
+{
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut buf = String::new();
         for character in &self.characters {

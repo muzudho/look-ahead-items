@@ -1,8 +1,12 @@
+use crate::look_ahead_text::CharacterTrait;
 use crate::look_ahead_text::LookAheadCharacters;
 use crate::look_ahead_text::Text;
 use crate::look_ahead_text::TextBuilder;
 
-impl Default for TextBuilder {
+impl<T> Default for TextBuilder<T>
+where
+    T: CharacterTrait + std::clone::Clone,
+{
     fn default() -> Self {
         TextBuilder {
             characters: Vec::new(),
@@ -12,8 +16,14 @@ impl Default for TextBuilder {
     }
 }
 
-impl TextBuilder {
-    pub fn build(&self) -> Text {
+impl<T> TextBuilder<T>
+where
+    T: std::clone::Clone + crate::look_ahead_text::CharacterTrait,
+{
+    pub fn build(&self) -> Text<T>
+    where
+        T: std::clone::Clone,
+    {
         Text {
             characters: self.characters.clone(),
             look_ahead_characters: LookAheadCharacters::new(0, &vec![]),
@@ -25,8 +35,8 @@ impl TextBuilder {
         self
     }
 
-    pub fn read<'a>(&'a mut self, line: &str) -> &'a Self {
-        self.characters = line.chars().collect();
+    pub fn read<'a>(&'a mut self, characters: &Vec<T>) -> &'a Self {
+        self.characters = characters.to_vec();
         self
     }
 }
