@@ -19,8 +19,8 @@ impl Iterator for Text {
     //     * `Iterator`が終了した時は`None`を返し、
     //     * そうでなければ`Some`でラップされた値を返す。
     fn next(&mut self) -> Option<LookAheadCharacters> {
-        // 先読みは４つとします。
-        let num = 4;
+        // 先読み。
+        let num = self.look_ahead_size;
 
         if self.look_ahead_characters.index < self.characters.len() {
             let mut vec = Vec::new();
@@ -40,18 +40,8 @@ impl Iterator for Text {
 }
 
 impl Text {
-    pub fn read(line: &str) -> Text {
-        let mut m = Text::default().set_look_ahead_size(4).clone();
-        let ch_vec: Vec<char> = line.chars().collect();
-        for (_i, ch) in ch_vec.iter().enumerate() {
-            m.push(*ch);
-        }
-        m
-    }
-
-    pub fn set_look_ahead_size(&mut self, size: usize) -> &mut Self {
-        self.look_ahead_size = size;
-        self
+    pub fn build(&self) -> &Self {
+        &self
     }
     pub fn push(&mut self, character: char) {
         self.characters.push(character.clone())
