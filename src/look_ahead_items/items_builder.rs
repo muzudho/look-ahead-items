@@ -1,6 +1,4 @@
-use crate::look_ahead_items::Items;
-use crate::look_ahead_items::ItemsBuilder;
-use crate::look_ahead_items::LookAheadItems;
+use crate::look_ahead_items::{Items, ItemsBuilder, LookAheadItems};
 
 impl<T> Default for ItemsBuilder<T>
 where
@@ -8,7 +6,7 @@ where
 {
     fn default() -> Self {
         ItemsBuilder {
-            characters: Vec::new(),
+            items: Vec::new(),
             /// 先読みする文字数。
             look_ahead_size: 2,
         }
@@ -24,8 +22,8 @@ where
         T: std::clone::Clone,
     {
         Items {
-            characters: self.characters.clone(),
-            look_ahead_characters: LookAheadItems::new(0, &vec![]),
+            items: self.items.clone(),
+            look_ahead_items: LookAheadItems::new(0, &vec![]),
             look_ahead_size: self.look_ahead_size,
         }
     }
@@ -34,8 +32,8 @@ where
         self
     }
 
-    pub fn read<'a>(&'a mut self, characters: &Vec<T>) -> &'a Self {
-        self.characters = characters.to_vec();
+    pub fn read<'a>(&'a mut self, items: &Vec<T>) -> &'a Self {
+        self.items = items.to_vec();
         self
     }
 }

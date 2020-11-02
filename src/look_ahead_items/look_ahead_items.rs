@@ -5,15 +5,15 @@ impl<T> LookAheadItems<T>
 where
     T: std::clone::Clone,
 {
-    pub fn new(index: usize, characters: &Vec<T>) -> Self {
+    pub fn new(index: usize, items: &Vec<T>) -> Self {
         LookAheadItems {
-            characters: characters.clone(),
+            items: items.clone(),
             index: index,
         }
     }
 
     pub fn get_characters(&self) -> &Vec<T> {
-        &self.characters
+        &self.items
     }
 }
 impl<T> fmt::Display for LookAheadItems<T>
@@ -22,8 +22,8 @@ where
 {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut buf = String::new();
-        for character in &self.characters {
-            buf.push_str(&format!("{}", character));
+        for item in &self.items {
+            buf.push_str(&format!("{}", item));
         }
         write!(f, "{}", buf)
     }
@@ -34,8 +34,8 @@ where
 {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut buf = String::new();
-        for character in &self.characters {
-            buf.push_str(&format!("{:?}", character));
+        for item in &self.items {
+            buf.push_str(&format!("{:?}", item));
         }
         write!(f, "{}", buf)
     }

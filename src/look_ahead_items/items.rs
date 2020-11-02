@@ -1,5 +1,4 @@
-use crate::look_ahead_items::Items;
-use crate::look_ahead_items::LookAheadItems;
+use crate::look_ahead_items::{Items, LookAheadItems};
 
 impl<T> Default for Items<T>
 where
@@ -7,8 +6,8 @@ where
 {
     fn default() -> Self {
         Items {
-            characters: Vec::new(),
-            look_ahead_characters: LookAheadItems::new(0, &vec![]),
+            items: Vec::new(),
+            look_ahead_items: LookAheadItems::new(0, &vec![]),
             look_ahead_size: 4,
         }
     }
@@ -28,16 +27,16 @@ where
         // 先読み。
         let num = self.look_ahead_size;
 
-        if self.look_ahead_characters.index < self.characters.len() {
+        if self.look_ahead_items.index < self.items.len() {
             let mut vec = Vec::new();
-            for i in self.look_ahead_characters.index..self.look_ahead_characters.index + num {
-                if i < self.characters.len() {
-                    vec.push(self.characters[i].clone());
+            for i in self.look_ahead_items.index..self.look_ahead_items.index + num {
+                if i < self.items.len() {
+                    vec.push(self.items[i].clone());
                 }
             }
 
-            let m = LookAheadItems::new(self.look_ahead_characters.index, &vec);
-            self.look_ahead_characters.index += 1;
+            let m = LookAheadItems::new(self.look_ahead_items.index, &vec);
+            self.look_ahead_items.index += 1;
             Some(m)
         } else {
             None

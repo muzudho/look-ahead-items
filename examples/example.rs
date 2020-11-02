@@ -6,13 +6,12 @@ fn main() {
     println!("Hello, world!");
     let raw_text = "1234abcあいうえおABC
 5678defgかきくけこDEFG";
-    let characters: Vec<char> = raw_text.chars().collect();
 
-    let text = ItemsBuilder::default()
+    let items = ItemsBuilder::default()
         .set_look_ahead_size(4)
-        .read(&characters)
+        .read(&raw_text.chars().collect())
         .build();
-    for character in text {
-        println!("{}", character);
+    for item in items {
+        println!("{}", item);
     }
 }
