@@ -1,17 +1,15 @@
-use crate::look_ahead_characters;
-use crate::Character;
 use crate::LookAheadCharacters;
 use std::fmt;
 
 impl LookAheadCharacters {
-    pub fn new(index: usize, characters: &Vec<Character>) -> Self {
+    pub fn new(index: usize, characters: &Vec<char>) -> Self {
         LookAheadCharacters {
             characters: characters.clone(),
             index: index,
         }
     }
 
-    pub fn get_characters(&self) -> &Vec<Character> {
+    pub fn get_characters(&self) -> &Vec<char> {
         &self.characters
     }
 }

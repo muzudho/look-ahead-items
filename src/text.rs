@@ -1,4 +1,3 @@
-use crate::Character;
 use crate::LookAheadCharacters;
 use crate::Text;
 
@@ -45,7 +44,7 @@ impl Text {
         let mut m = Text::default().set_look_ahead_size(4).clone();
         let ch_vec: Vec<char> = line.chars().collect();
         for (_i, ch) in ch_vec.iter().enumerate() {
-            m.push(&Character::new(*ch));
+            m.push(*ch);
         }
         m
     }
@@ -54,7 +53,7 @@ impl Text {
         self.look_ahead_size = size;
         self
     }
-    pub fn push(&mut self, character: &Character) {
+    pub fn push(&mut self, character: char) {
         self.characters.push(character.clone())
     }
 }
